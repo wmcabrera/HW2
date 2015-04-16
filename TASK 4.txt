@@ -1,0 +1,194 @@
+--------------------------------------------------------------------
+ICMP ping reachability and latency 
+--------------------------------------------------------------------
+              Reachable  Latency
+129.7.242.148     Y        0.44 ms
+129.7.243.243     Y        0.10
+129.7.241.4       Y        0.16 ms
+129.7.243.160     Y        0.10
+129.7.243.103     Y        0.25
+
+
+--------------------------------------------------------------------
+PORT SCANNING WITH NMAP
+--------------------------------------------------------------------
+
+Starting Nmap 5.21 ( http://nmap.org ) at 2015-04-16 10:34 CDT
+Nmap scan report for dhcp148.cs.uh.edu (129.7.242.148)
+Host is up (0.0037s latency).
+All 1000 scanned ports on dhcp148.cs.uh.edu (129.7.242.148) are filtered
+
+Nmap done: 1 IP address (1 host up) scanned in 21.12 seconds
+scidb@SciDB-1:~/wcabrera/TCP$ sudo nmap -sS 129.7.243.243
+
+Starting Nmap 5.21 ( http://nmap.org ) at 2015-04-16 10:35 CDT
+Nmap scan report for dbgroup3 (129.7.243.243)
+Host is up (0.000089s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+902/tcp  open  iss-realsecure
+3389/tcp open  ms-term-serv
+8080/tcp open  http-proxy
+8083/tcp open  unknown
+MAC Address: 00:21:9B:FB:CC:2D (Dell)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.08 seconds
+scidb@SciDB-1:~/wcabrera/TCP$ sudo nmap -sS 129.7.241.4
+
+Starting Nmap 5.21 ( http://nmap.org ) at 2015-04-16 10:36 CDT
+Nmap scan report for linux04.cs.uh.edu (129.7.241.4)
+Host is up (0.0014s latency).
+Not shown: 998 filtered ports
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+9999/tcp closed abyss
+
+Nmap done: 1 IP address (1 host up) scanned in 4.89 seconds
+scidb@SciDB-1:~/wcabrera/TCP$ sudo nmap -sS 129.7.243.160
+
+Starting Nmap 5.21 ( http://nmap.org ) at 2015-04-16 10:37 CDT
+Nmap scan report for limi.cs.uh.edu (129.7.243.160)
+Host is up (0.000085s latency).
+Not shown: 991 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+25/tcp   open  smtp
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+8081/tcp open  blackice-icecap
+MAC Address: 00:11:25:1E:0E:12 (IBM)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
+scidb@SciDB-1:~/wcabrera/TCP$ sudo nmap -sS 129.7.243.103
+
+Starting Nmap 5.21 ( http://nmap.org ) at 2015-04-16 10:37 CDT
+Nmap scan report for bison.cs.uh.edu (129.7.243.103)
+Host is up (0.00038s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+8080/tcp open  http-proxy
+MAC Address: 00:25:90:66:E6:44 (Super Micro Computer)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+scidb@SciDB-1:~/wcabrera/TCP$ 
+
+
+
+
+
+
+-----------------------------------------------------------
+REVERSE DNS OF THE FOLLOWING IP ADDRESSES
+-----------------------------------------------------------
+
+129.7.242.148
+129.7.243.243
+129.7.241.4
+129.7.243.160
+129.7.243.103
+
+
+
+
+
+; <<>> DiG 9.8.1-P1 <<>> -x 129.7.242.148
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29598
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;148.242.7.129.in-addr.arpa.    IN      PTR
+
+;; ANSWER SECTION:
+148.242.7.129.in-addr.arpa. 3599 IN     PTR     dhcp148.cs.uh.edu.
+
+;; Query time: 31 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Thu Apr 16 10:43:51 2015
+;; MSG SIZE  rcvd: 75
+
+
+; <<>> DiG 9.8.1-P1 <<>> -x 129.7.243.243
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 32255
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+:$
+
+;; Query time: 6 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Thu Apr 16 10:43:51 2015
+;; MSG SIZE  rcvd: 72
+
+
+; <<>> DiG 9.8.1-P1 <<>> -x 129.7.243.103
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59660
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;103.243.7.129.in-addr.arpa.    IN      PTR
+
+;; ANSWER SECTION:
+103.243.7.129.in-addr.arpa. 3599 IN     PTR     bison.cs.uh.edu.
+
+;; Query time: 28 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Thu Apr 16 10:43:51 2015
+;; MSG SIZE  rcvd: 73
+
+-----------------------------------------------------------
+TRACEROUTE
+-----------------------------------------------------------
+
+traceroute to 129.7.242.148 (129.7.242.148), 30 hops max, 60 byte packets
+ 1  Charybdis-VLAN31.cs.uh.edu (129.7.243.254)  17.890 ms  19.883 ms  20.313 ms
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  * * *
+ 7  * * *
+ 8  * * *
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+traceroute to 129.7.243.243 (129.7.243.243), 30 hops max, 60 byte packets
+ 1  dbgroup3 (129.7.243.243)  0.321 ms  0.302 ms  0.297 ms
+traceroute to 129.7.241.4 (129.7.241.4), 30 hops max, 60 byte packets
+ 1  Charybdis-VLAN31.cs.uh.edu (129.7.243.254)  15.376 ms  19.318 ms  19.750 ms
+ 2  linux04.cs.uh.edu (129.7.241.4)  11.775 ms !X  12.236 ms !X  12.808 ms !X
+traceroute to 129.7.243.160 (129.7.243.160), 30 hops max, 60 byte packets
+ 1  limi.cs.uh.edu (129.7.243.160)  0.285 ms  0.273 ms  0.267 ms
+traceroute to 129.7.243.103 (129.7.243.103), 30 hops max, 60 byte packets
+ 1  bison.cs.uh.edu (129.7.243.103)  0.539 ms  0.593 ms  0.587 ms
