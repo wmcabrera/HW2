@@ -1,0 +1,33 @@
+awk 'BEGIN {
+    FS="[,]" ;
+}
+{
+       Source[tolower($3)]++ ;
+       Dest[tolower($4)]++ ;
+       Protocol[tolower($5)]++ ;
+       if ( substr($7, 3,7) == "TCP Dup")
+              TcpDupAck++;
+       if ( index($7, "Retransmission") >0    )
+              TcpRetrans++;
+}
+END {
+    print( "TOTAL PACKAGES", NR,"\n" );
+    print( "\nTOP Source Addr: #PCK   %" );
+    print( "---------------------------");
+    for (i in Source)
+         if ( Source[i]* 20  > NR )
+              print i, Source[i], 100*Source[i]/NR "%";
+    print( "\nTOP Destin Addr: #PCK   %" );
+    print( "---------------------------");
+    for (i in Dest)
+         if ( Dest[i]* 20  > NR )
+              print i,Dest[i], 100*Dest[i]/NR "%";
+    print( "\nTOP Protocols  : #PCK   %" );
+    print( "---------------------------");
+    for (i in Protocol)
+         if ( Protocol[i]* 20  > NR  )
+              print i,Protocol[i], 100*Protocol[i]/NR "%";
+    print( "\n");
+    print( "TCP Duplic  ACK PCK:", TcpDupAck, 100*TcpDupAck/NR "%");
+    print( "TCP Retransmiss PCK:", TcpRetrans, 100*TcpRetrans/NR "%");
+} ' $1    
